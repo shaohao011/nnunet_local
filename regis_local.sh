@@ -1,0 +1,2 @@
+python=/inspire/ssd/ws-f4d69b29-e0a5-44e6-bd92-acf4de9990f0/public-project/ruishaohao-240108100042/myconda/conda_dir/envs/local_env/bin/python
+${python} local_registration.py --target_modal PSIR --mode Old_SyN

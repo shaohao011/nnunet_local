@@ -1,0 +1,30 @@
+/inspire/ssd/ws-f4d69b29-e0a5-44e6-bd92-acf4de9990f0/public-project/ruishaohao-240108100042/myconda/conda_dir/envs/local_env/bin/python
+
+
+请你帮我完成下面清洗数据任务
+
+1. 对于total_200目录，其含有若干子目录，按照one two three 顺序命名
+2. 以one为例，其含有多个patient目录，按照病人名字命名，注意病人名字含有空格
+3. 以其中一个病人为例，该目录下含有多个模态目录，按照PSIR,T2W...命名
+4. 以PSIR目录为例，该目录下含有x.dcm文件以及关于该.dcm文件的标注文件y.bmp，注意x包含在y中且需要检查y是否是纯数字。
+5. 每个病人只有PSIR和T2W模态含有.dcm文件对应的标注文件
+
+要求：
+1. 对上述数据进行清洗，清洗后得到total_200_new（文件复制得到），该目录下含有若干目录，目录命名规则示例:one_patient 
+2. 以one_patient为例，其目录下含有多个模态目录，每个模态目录包含若干.dcm文件，如果有bmp则包含bmp
+3. 命名规范：需要检查是否所有模态名称位于["T2W", "ECV", "eT1M", "nT1m", "PSIR","T2-star","T2m"]内，如果是大小写问题，请转换成提供的标准形式；如果是其它问题，报错并返回目录名称
+4. 原始total_200目录病人名称中的空格需要删除
+
+
+# 配准
+请你使用python帮我完成下面任务:
+
+1. data目录下有若干patient的目录，每个patient目录下面有多个模态目录，按照T2W ,PSIR,ECV等命名
+2. 我希望将每个patient的其它模态向T2W模态配准。这里你不需要提供配准代码的具体实现，直接pass即可
+3. 以PSIR向T2W配准为例，配准后的图像的shape为(336,336,x)，x表示当前patient切片数量，
+4. 需要按照切片对不同模态进行保存为case_{slice_id:04d}_{modal_name:04d}.nii.gz【保存在images路径下】。modal_name是模态名称，即T2W PSIR 的离散编码
+5. 最终需要给出一份数据集划分，需要按照patient级别划分训练集，验证集和测试集。
+6. 给出划分的json文件并对images目录进行划分使其符合nnunet框架对于数据格式的要求
+
+
+
